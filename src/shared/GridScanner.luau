@@ -16,10 +16,9 @@ export type Cell = {
 	walkable: boolean,
 }
 
--- Typed via typeof(setmetatable(...)) so every method below has a concrete
--- `self` type -- otherwise strict mode can't confirm fields like
--- self.minCorner/self.cells exist and underlines them despite being set in
--- GridScanner.new().
+-- Typed via typeof(setmetatable(...)) so every method below has a concrete `self` type
+-- otherwise strict mode can't confirm fields like
+-- self.minCorner/self.cells exist and underlines them despite being set in GridScanner.new().
 type GridScannerFields = {
 	minCorner: Vector3,
 	maxCorner: Vector3,
