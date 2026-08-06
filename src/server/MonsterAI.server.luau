@@ -13,7 +13,7 @@ local COLOR_FAR = Color3.fromRGB(255, 195, 0)
 local MONSTER_MODEL_NAME = "Wavy"
 local WALK_ANIMATION_ID = "rbxassetid://105790090049099"
 local RUN_ANIMATION_ID = "rbxassetid://114796763148559"
-local ATTACK_ANIMATION_ID = ""
+local ATTACK_ANIMATION_ID = "rbxassetid://116980480677240"
 
 local function findAnywhere(name: string): BasePart?
 	for _ = 1, 50 do -- retry for up to ~5 seconds in case parts haven't replicated yet
@@ -146,8 +146,7 @@ RunService.Heartbeat:Connect(function(dt)
 		lastState = state
 	end
 
-	-- Only Chase/Flee ever have a path; Search intentionally clears it, and
-	-- Idle/Attack never set one
+	-- Only Chase/Flee ever have a path; Search intentionally clears it, and Idle/Attack never set one
 	local path = fsm:GetCurrentPath()
 	if path then
 		if path ~= lastDrawnPath then
