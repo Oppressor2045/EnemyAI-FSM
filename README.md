@@ -1,7 +1,9 @@
 # Enemy AI (FSM)
 
 A finite state machine for enemy AI: Idle -> Chase -> Attack, with Search (lost sight) and Flee (low health) able to interrupt.
+
 Movement reuses the `GridScanner`/`AStar` modules from the pathfinding project.
+
 Vision is blocked by walls via raycast line-of-sight.
 
 **Key behavior:** losing sight of the target does not make the monster path straight toward its last known position.
