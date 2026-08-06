@@ -132,8 +132,7 @@ end
 function MonsterFSM._playAttackAnimation(self: MonsterFSM)
 	if self.attackTrack then self.attackTrack:Play() end
 end
--- Walks via MoveTo + MoveToFinished (Roblox's own waypoint-following
--- pattern) instead of polling distance every frame -- Humanoid decides
+-- Walks via MoveTo + MoveToFinished (Roblox's own waypoint-following pattern) instead of polling distance every frame -- Humanoid decides
 -- arrival itself. pathVersion cancels a stale task at its next waypoint.
 function MonsterFSM._walkHumanoidPath(self: MonsterFSM, path: { Vector3 }?)
 	self.pathVersion += 1
