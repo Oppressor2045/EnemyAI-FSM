@@ -1,19 +1,16 @@
 # Enemy AI (FSM)
 
-A finite state machine for enemy AI: Idle -> Chase -> Attack, with Search
-(lost sight) and Flee (low health) able to interrupt. Movement reuses the
-`GridScanner`/`AStar` modules from the pathfinding project. Vision is
-blocked by walls via raycast line-of-sight.
+A finite state machine for enemy AI: Idle -> Chase -> Attack, with Search (lost sight) and Flee (low health) able to interrupt.
+Movement reuses the `GridScanner`/`AStar` modules from the pathfinding project.
+Vision is blocked by walls via raycast line-of-sight.
 
-**Key behavior:** losing sight of the target does not make the monster path
-straight toward its last known position. `Search` (and `Idle`, while waiting
-to detect a target) wander to random nearby points instead, so the monster
-doesn't "cheat" by knowing exactly where the target went, and doesn't just
-freeze in place.
+**Key behavior:** losing sight of the target does not make the monster path straight toward its last known position.
+`Search` (and `Idle`, while waiting to detect a target) wander to random nearby points instead,
+so the monster doesn't "cheat" by knowing exactly where the target went,
+and doesn't just freeze in place.
 
-Stairs and other stepped terrain are walkable: `GridScanner` no longer
-compares each cell against a single global floor height. Instead, `AStar`
-checks the height difference between adjacent cells directly
+Stairs and other stepped terrain are walkable: `GridScanner` no longer compares each cell against a single global floor height.
+Instead, `AStar` checks the height difference between adjacent cells directly
 (`GridScanner:CanStepBetween`, default max 3 studs) -- small steps (stairs)
 stay connected, while a big jump (a wall) does not.
 
