@@ -1,4 +1,4 @@
-# Enemy AI (FSM)
+# Enemy AI FSM (Roblox / Rojo)
 
 A finite state machine for enemy AI: Idle -> Chase -> Attack,
 
