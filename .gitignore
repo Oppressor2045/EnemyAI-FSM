@@ -1,0 +1,4 @@
+*.rbxl
+*.rbxlx
+.rojo-cache/
+node_modules/

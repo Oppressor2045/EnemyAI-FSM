@@ -1,0 +1,19 @@
+{
+  "name": "EnemyAI",
+  "tree": {
+    "$className": "DataModel",
+    "ReplicatedStorage": {
+      "Modules": {
+        "$path": "src/shared"
+      }
+    },
+    "ServerScriptService": {
+      "$path": "src/server"
+    },
+    "StarterPlayer": {
+      "StarterPlayerScripts": {
+        "$path": "src/starterPlayerScripts"
+      }
+    }
+  }
+}
