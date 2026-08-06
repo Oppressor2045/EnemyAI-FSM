@@ -14,10 +14,8 @@ local NEIGHBOR_OFFSETS = {
 }
 
 -- Small binary min-heap used as the open set.
--- Typed via typeof(setmetatable(...)) so Luau knows the shape of `self` in
--- every method below -- otherwise strict mode can't confirm fields like
--- self.size/self.items exist and underlines them even though they're set
--- in MinHeap.new().
+-- Typed via typeof(setmetatable(...)) so Luau knows the shape of `self` in every method below
+-- otherwise strict mode can't confirm fields like self.size/self.items exist and underlines them even though they're set in MinHeap.new().
 type HeapEntry = { item: any, priority: number }
 type MinHeapFields = { items: { HeapEntry }, size: number }
 
@@ -94,9 +92,8 @@ local function canMoveDiagonal(grid: any, gx: number, gz: number, dx: number, dz
 	return (side1 ~= nil and side1.walkable) and (side2 ~= nil and side2.walkable)
 end
 
--- grid: a GridScanner instance (kept as `any` on purpose -- AStar only needs
--- GetCell/GetClosestCellCoords/CanStepBetween, so it stays decoupled from
--- GridScanner's concrete type and can work with any object shaped the same way)
+-- grid: a GridScanner instance (kept as `any` on purpose -- AStar only needs GetCell/GetClosestCellCoords/CanStepBetween,
+-- so it stays decoupled from GridScanner's concrete type and can work with any object shaped the same way)
 -- startPos/goalPos: world-space Vector3
 -- returns: an array of waypoint Vector3s (start and goal included), or nil if no path exists
 function AStar.FindPath(grid: any, startPos: Vector3, goalPos: Vector3): { Vector3 }?
